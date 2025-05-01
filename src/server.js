@@ -53,6 +53,51 @@ app.use((req, res) => {
   res.status(404).json({ status: 'error', message: 'Route not found' });
 });
 
+// Initialize server
+async function startServer() {
+  try {
+    await connectToDb();
 
+    const server = app.listen(PORT, () => {
+      console.log(`Server running on http://localhost:${PORT}`);
+      console.log('Database connection: OK');
+    });
+
+    const wss = new WebSocketServer({ server, path: '/ws' });
+
+    wss.on('connection', (ws) => {
+      console.log('🔌 New WebSocket connection');
+      ws.on('message', (message) => {
+        console.log('📩 Received:', message.toString());
+        ws.send(`Echo: ${message}`);
+      });
+      ws.on('close', () => {
+        console.log('❌ Client disconnected');
+      });
+    });
+
+    wss.on('error', (err) => {
+      console.error('WebSocket error:', err);
+    });
+
+    server.on('error', (error) => {
+      console.error('Server error:', error);
+      process.exit(1);
+    });
+
+    process.on('unhandledRejection', (reason, promise) => {
+      console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+    });
+
+    process.on('uncaughtException', (error) => {
+      console.error('Uncaught Exception:', error);
+      process.exit(1);
+    });
+
+  } catch (err) {
+    console.error('Failed to start server:', err);
+    process.exit(1);
+  }
+}
 
 startServer();
