@@ -1,0 +1,366 @@
+.Navbar {
+  position: fixed;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  border-bottom: solid 2px;
+  background-color: white;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  left: 0; /* Ensure the navbar starts from the left edge */
+}
+
+nav {
+  display: flex;
+  margin: 0 auto;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  max-width: 1200px;
+  flex-wrap: nowrap;
+  width: 100%; /* Ensure navbar takes full width of its container */
+}
+
+body {
+  margin: 0; /* Reset default body margin */
+  padding: 0; /* Reset default body padding */
+}
+
+html {
+  box-sizing: border-box; /* Use border-box for more predictable sizing */
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.Nav-title {
+  margin: 0 !important;
+  font-size: 30px !important;
+  font-weight: 700 !important;
+  color: #333;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 20px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  font-family: inherit;
+}
+
+.nav-search-btn {
+  width: 20px;
+}
+
+.search-bar button {
+  position: relative;
+  background-color: #000000;
+  padding: 10px;
+  width: 50px;
+  height: 37px;
+  left: -10px;
+  border-radius: 0 5px 5px 0;
+  color: #ffffff;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar button svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.search-bar button:hover {
+  background: #333;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.navbar-links a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: gray;
+}
+
+.navbar-button button {
+  border: none;
+  background: black;
+  padding: 12px 30px;
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar-button button:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+.navbar-button button:active {
+  transform: translateY(0);
+}
+
+/* Business Dropdown Styles */
+.business-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.business-dropdown-btn {
+  background: none;
+  border: none;
+  color: black;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  font-size: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.business-dropdown-btn:hover {
+  color: gray;
+}
+
+.business-dropdown-btn svg {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.business-dropdown-btn:hover svg {
+  transform: translateY(2px);
+}
+
+.business-dropdown-content {
+  position: absolute;
+  background-color: white;
+  min-width: 220px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 5px;
+  top: 100%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.business-dropdown-content.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.business-dropdown:hover .business-dropdown-content {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.business-dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  font-weight: normal;
+  transition: background-color 0.2s ease;
+}
+
+.business-dropdown-content a:hover {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+/* Mobile Menu Styles */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+  color: #000;
+}
+
+/* Tablet Styles */
+@media screen and (max-width: 1024px) {
+  nav {
+    padding: 15px;
+  }
+  
+  .navbar-links {
+    gap: 20px;
+  }
+  
+  .search-bar {
+    max-width: 300px;
+  }
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  nav {
+    flex-wrap: wrap;
+    padding: 15px 10px; /* Reduce horizontal padding on mobile */
+  }
+  
+  .nav-left {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0; /* Remove any padding */
+  }
+  
+  .search-bar {
+    order: 1;
+    margin: 15px 0;
+    width: 100%;
+    max-width: none;
+  }
+  
+  .navbar-links {
+    display: none;
+    width: 100%;
+    order: 2;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+    align-items: flex-start;
+    border-top: 1px solid #eee;
+    margin-top: 10px;
+  }
+  
+  .navbar-links.show {
+    display: flex;
+  }
+  
+  .navbar-button {
+    width: 100%;
+    order: 3;
+    margin-top: 10px;
+  }
+  
+  .navbar-button button {
+    width: 100%;
+  }
+  
+  .business-dropdown {
+    width: 100%;
+  }
+  
+  .business-dropdown-btn {
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+  
+  .business-dropdown-content {
+    position: static;
+    box-shadow: none;
+    background-color: #f9f9f9;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  /* Fix for mobile dropdown animation */
+  .business-dropdown-content {
+    display: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+    pointer-events: auto;
+  }
+  
+  .business-dropdown-content.show {
+    display: flex;
+  }
+}
+
+/* Small Mobile Styles */
+@media screen and (max-width: 480px) {
+  .Nav-title {
+    font-size: 24px !important;
+  }
+  
+  nav {
+    padding: 10px 5px; /* Further reduce padding on small screens */
+  }
+  
+  .search-bar input {
+    padding: 8px;
+  }
+  
+  .search-bar button {
+    height: 33px;
+  }
+  
+  .navbar-button button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Fix for very small screens */
+@media screen and (max-width: 320px) {
+  .Nav-title {
+    font-size: 20px !important;
+  }
+  
+  .mobile-menu-btn {
+    font-size: 20px;
+  }
+}

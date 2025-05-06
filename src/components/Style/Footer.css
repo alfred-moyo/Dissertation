@@ -1,0 +1,100 @@
+/* Footer Section */
+.footer {
+  margin-top: 50px;
+  color: white;
+  background-color: black;
+  width: 100vw;
+  padding: 40px 0;
+  border-top: 1px solid #444;
+  box-sizing: border-box;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* Footer content wrapper */
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  width: 100%;
+}
+
+/* Reset styles to ensure consistent rendering */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.footer-section {
+  flex: 1;
+  padding: 0 20px;
+  min-width: 200px;
+  margin-bottom: 20px;
+}
+
+.footer-section h3 {
+  font-size: 15px;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.footer-section p {
+  font-size: small;
+  font-weight: 300;
+  margin: 5px 0;
+  color: #ccc; /* Light gray for better readability */
+}
+
+.footer-logo {
+  width: 80px;
+  height: auto;
+}
+
+.footer-section ul {
+  list-style-type: none;
+  font-size: small;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 10px 0;
+}
+
+.footer-section ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+.footer-section ul li a:hover {
+  color: gray;
+  transition: 0.3s;
+}
+
+/* Make footer responsive */
+@media screen and (max-width: 900px) {
+  .footer {
+    justify-content: flex-start;
+    padding: 40px 15px;
+    
+  }
+  
+  .footer-section {
+    flex: 0 0 calc(50% - 30px); /* Two columns on tablet */
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer-section {
+    flex: 0 0 100%; /* One column on mobile */
+  }
+}
